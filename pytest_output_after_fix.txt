@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
+rootdir: /home/ubuntu/Desktop/UCL 2021-2022/MPHY0021 - Research Software Engineering with Python/times-tests
+plugins: anyio-2.2.0
+collected 3 items
+
+test_times.py ...                                                        [100%]
+
+============================== 3 passed in 0.02s ===============================
