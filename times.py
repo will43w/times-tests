@@ -19,12 +19,12 @@ def compute_overlap_time(range1, range2):
             high = min(end1, end2)
 
             # Incorrect - before testing
-            # overlap_time.append((low, high))
+            overlap_time.append((low, high))
 
             # Correct - after testing
-            if low < high:
-                overlap_time.append((low, high))
-    
+            # if low < high:
+            #     overlap_time.append((low, high))
+
     return overlap_time
 
 if __name__ == "__main__":
