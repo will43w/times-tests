@@ -1,0 +1,43 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
+rootdir: /home/ubuntu/Desktop/UCL 2021-2022/MPHY0021 - Research Software Engineering with Python/times-tests
+plugins: anyio-2.2.0
+collected 3 items
+
+test_times.py .FF                                                        [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_nonoverlapping_input ___________________________
+
+    def test_nonoverlapping_input():
+        range1 = time_range("2010-01-12 10:00:00", "2010-01-12 12:00:00")
+        range2 = time_range("2010-01-12 13:00:00", "2010-01-12 14:00:00")
+    
+        result = compute_overlap_time(range1, range2)
+        expected = []
+    
+>       assert result == expected
+E       AssertionError: assert [('2010-01-12...12 12:00:00')] == []
+E         Left contains one more item: ('2010-01-12 13:00:00', '2010-01-12 12:00:00')
+E         Use -v to get the full diff
+
+test_times.py:19: AssertionError
+_________________________ test_just_overlapping_input __________________________
+
+    def test_just_overlapping_input():
+        range1 = time_range("2010-01-12 10:00:00", "2010-01-12 12:00:00")
+        range2 = time_range("2010-01-12 12:00:00", "2010-01-12 13:00:00")
+    
+        result = compute_overlap_time(range1, range2)
+        expected = []
+    
+>       assert result == expected
+E       AssertionError: assert [('2010-01-12...12 12:00:00')] == []
+E         Left contains one more item: ('2010-01-12 12:00:00', '2010-01-12 12:00:00')
+E         Use -v to get the full diff
+
+test_times.py:28: AssertionError
+=========================== short test summary info ============================
+FAILED test_times.py::test_nonoverlapping_input - AssertionError: assert [('2...
+FAILED test_times.py::test_just_overlapping_input - AssertionError: assert [(...
+========================= 2 failed, 1 passed in 0.04s ==========================
