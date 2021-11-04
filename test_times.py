@@ -38,9 +38,7 @@ def test_several_intervals_each():
     assert result == expected
 
 def test_inverted_time_range():
-    with raises(ValueError) as exception:
+    with raises(ValueError, match = "end_time must be after start_time") as exception:
         time_range("2010-01-12 10:40:00", "2010-01-12 10:20:00")
-
-    assert str(exception.value) == "end_time must be after start_time"
 
     
