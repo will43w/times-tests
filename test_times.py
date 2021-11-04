@@ -1,4 +1,5 @@
 from times import time_range, compute_overlap_time
+from pytest import raises
 
 def test_given_input():
     large = time_range("2010-01-12 10:00:00", "2010-01-12 12:00:00")
@@ -35,5 +36,11 @@ def test_several_intervals_each():
     expected = [("2010-01-12 10:05:00", "2010-01-12 10:10:00"), ("2010-01-12 10:20:00", "2010-01-12 10:25:00"), ("2010-01-12 10:35:00", "2010-01-12 10:40:00")]
 
     assert result == expected
+
+def test_inverted_time_range():
+    with raises(ValueError) as exception:
+        time_range("2010-01-12 10:40:00", "2010-01-12 10:20:00")
+
+    assert str(exception.value) == "end_time must be after start_time"
 
     
